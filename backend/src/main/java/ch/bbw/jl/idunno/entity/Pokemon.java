@@ -21,17 +21,16 @@ public class Pokemon {
     private List<Moves> moves;
     @SerializedName("name")
     private String name;
-//    @SerializedName("species")
-//    private List<Specie> species;
-//    @SerializedName("sprites")
-//    private List<Sprite> sprites;
-//    @SerializedName("stats")
-//    private List<Stat> stats;
-//    @SerializedName("types")
-//    private List<Type> types;
-//    @SerializedName("weight")
-//    private int weight;
-
+    @SerializedName("species")
+    private Specie species;
+    @SerializedName("sprites")
+    private Sprite sprites;
+    @SerializedName("stats")
+    private List<Stats> stats;
+    @SerializedName("types")
+    private List<Types> types;
+    @SerializedName("weight")
+    private int weight;
 
     public int getId() {
         return id;
@@ -87,5 +86,45 @@ public class Pokemon {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Specie getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Specie species) {
+        this.species = species;
+    }
+
+    public Sprite getSprites() {
+        return sprites;
+    }
+
+    public void setSprites(Sprite sprites) {
+        this.sprites = sprites;
+    }
+
+    public List<Stats> getStats() {
+        return stats;
+    }
+
+    public void setStats(List<Stats> stats) {
+        this.stats = stats;
+    }
+
+    public List<Types> getTypes() {
+        return types;
+    }
+
+    public void setTypes(List<Types> types) {
+        this.types = types;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

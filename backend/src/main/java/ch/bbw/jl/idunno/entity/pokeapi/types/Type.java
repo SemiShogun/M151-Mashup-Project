@@ -1,6 +1,6 @@
-package ch.bbw.jl.idunno.entity.pokeapi;
+package ch.bbw.jl.idunno.entity.pokeapi.types;
 
-public class Stat {
+public class Type {
     private String name;
     private String url;
 
@@ -20,3 +20,4 @@ public class Stat {
         this.url = url;
     }
 }
+
