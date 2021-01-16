@@ -21,7 +21,6 @@ export default class DadList extends Vue {
       .get("http://localhost:8080/dadjoke")
       .then((res) => {
         this.dadjoke = res.data.joke;
-        console.log(this.dadjoke);
       })
       .catch((e) => {
         console.log(e);

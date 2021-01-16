@@ -1,7 +1,20 @@
 <template>
   <div id="app">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      style="overflow: hidden; float: left;"
+      @click="apiSwitch()"
+    >
+      Switch
+    </button>
     <div class="size d-flex justify-content-center align-items-center">
-      <DadJoke />
+      <div v-if="dadApi === true">
+        <DadJoke />
+      </div>
+      <div v-if="dadApi === false">
+        <Pokemon />
+      </div>
     </div>
   </div>
 </template>
@@ -9,13 +22,21 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import DadJoke from "./components/DadJoke.vue";
+import Pokemon from "./components/Pokemon.vue";
 
 @Component({
   components: {
     DadJoke,
+    Pokemon,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private dadApi: boolean = true;
+
+  apiSwitch() {
+    this.dadApi = !this.dadApi;
+  }
+}
 </script>
 
 <style>
@@ -25,11 +46,6 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 0rem 5rem 0rem 5rem;
-  height: 100vh;
-}
-
-.size {
-  height: 100%;
+  margin: 5rem 5rem 0rem 5rem;
 }
 </style>
