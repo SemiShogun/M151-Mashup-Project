@@ -1,6 +1,5 @@
 package ch.bbw.jl.idunno.dao;
 
-import ch.bbw.jl.idunno.entity.DadJoke;
 import ch.bbw.jl.idunno.entity.Pokemon;
 import com.google.gson.Gson;
 
@@ -40,6 +39,28 @@ public class PokemonDao {
         Pokemon pokemon = null;
         try {
             StringBuilder url = new StringBuilder(BASE_URL + "/" + id);
+            System.out.println(url);
+            HttpURLConnection con = (HttpURLConnection) new URL(url.toString()).openConnection();
+            con.setRequestProperty("Accept", "application/json");
+
+            int respCode = con.getResponseCode();
+            if (respCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                Gson gson = new Gson();
+                pokemon = gson.fromJson(reader, Pokemon.class);
+            } else {
+                System.out.println("Error: " + con);
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return pokemon;
+    }
+
+    public static Pokemon getPokemonByName(String name) {
+        Pokemon pokemon = null;
+        try {
+            StringBuilder url = new StringBuilder(BASE_URL + "/" + name);
             System.out.println(url);
             HttpURLConnection con = (HttpURLConnection) new URL(url.toString()).openConnection();
             con.setRequestProperty("Accept", "application/json");

@@ -1,8 +1,6 @@
 package ch.bbw.jl.idunno.controller;
 
-import ch.bbw.jl.idunno.dao.DadJokeDao;
 import ch.bbw.jl.idunno.dao.PokemonDao;
-import ch.bbw.jl.idunno.entity.DadJoke;
 import ch.bbw.jl.idunno.entity.Pokemon;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +22,11 @@ public class PokemonController {
     @ResponseStatus(HttpStatus.OK)
     public Pokemon getPokemonById(@PathVariable int id) {
         return PokemonDao.getPokemonById(id);
+    }
+
+    @GetMapping("/name/{name}")
+    @ResponseStatus(HttpStatus.OK)
+    public Pokemon getPokemonByName(@PathVariable String name) {
+        return PokemonDao.getPokemonByName(name);
     }
 }
