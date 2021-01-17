@@ -79,14 +79,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import DadJoke from "./components/DadJoke.vue";
 import Pokemon from "./components/Pokemon.vue";
-import History from "./components/History.vue";
 import axios from "axios";
 
 @Component({
   components: {
     DadJoke,
     Pokemon,
-    History,
   },
 })
 export default class App extends Vue {
