@@ -99,7 +99,7 @@ export default class App extends Vue {
   }
 
   async getHistory() {
-    axios
+    await axios
       .get("http://localhost:8080/history")
       .then((res) => {
         this.history = res.data;
